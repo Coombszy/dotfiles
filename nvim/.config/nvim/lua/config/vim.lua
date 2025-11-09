@@ -1,0 +1,17 @@
+vim.opt.number = true
+vim.opt.autoindent = true
+vim.opt.mouse = "a"
+vim.opt.wildignore = vim.opt.wildignore + { "*.pyc", "node_modules", "_site", "__pycache__" }
+vim.opt.showmode = false
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+vim.opt.smarttab = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.relativenumber = true
+vim.g.have_nerd_font = true

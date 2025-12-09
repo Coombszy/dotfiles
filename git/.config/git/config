@@ -20,9 +20,9 @@
         colorMoved = plain       # Highlight moved blocks in diffs
         mnemonicPrefix = true    # More intuitive refs in diff output
 [commit]
-        verbose = true           # Include diff comment in commit message template
+        verbose = false          # Don't include diff comment in commit message template
 [column]
-        ui = auto                            # Output in columns when possible
+        ui = auto                # Output in columns when possible
 [branch]
         sort = -committerdate    # Sort branches by most recent commit first
 [tag]
@@ -37,3 +37,5 @@
         editor = nvim
         eol = lf
         autocrlf = false
+[merge]
+	ff = true

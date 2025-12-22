@@ -29,7 +29,11 @@ return {
                     'filetype',
                     'progress'
                 },
-                lualine_y = { "os.date('%H:%M')" }
+                lualine_y = { "os.date('%H:%M')" },
+            },
+            inactive_sections = {
+                lualine_c = { { 'filename', path = 1 } },
+                lualine_x = { 'location' },
             }
         }
     end

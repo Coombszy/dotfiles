@@ -6,6 +6,17 @@ return {
     config = function()
         require("nvim-web-devicons").setup()
 
+        -- Prevent LSP from starting on diffview buffers
+        vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+            callback = function(args)
+                local bufname = vim.api.nvim_buf_get_name(args.buf)
+                if bufname:match("^diffview://") then
+                    vim.bo[args.buf].buftype = "nofile"
+                    return
+                end
+            end,
+        })
+
         -- Prevent specific LSPs from attaching to diffview buffers
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(args)

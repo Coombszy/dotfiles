@@ -18,6 +18,8 @@ alias full-update='sudo pacman -Syyu'
 # Set NVIM as default editor
 VISUAL=nvim
 EDITOR="$VISUAL"
+# Start/Attach to tmux
+alias tmux-join='tmux attach -t primary || tmux new -s primary'
 
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -68,10 +70,10 @@ then
     alias pbcopy="xclip -sel clip"
 fi
 
-# Tmux start/reconnect by default
-if [ -z "$TMUX" ]
+# Tmux start/reconnect by default (skip if SSH session)
+if [ -z "$TMUX" ] && [ -z "$SSH_TTY" ]
 then
-    tmux attach -t primary || tmux new -s primary
+    tmux-join
 fi
 
 ################################################################################

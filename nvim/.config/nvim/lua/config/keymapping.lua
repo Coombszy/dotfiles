@@ -25,6 +25,11 @@ map("", "<C-S-l>", "<cmd>set relativenumber!<CR>", {})
 -- Disable
 map("", "<F1>", "<Nop>", {})
 
+-- Terminal compatibility: In Alacritty, Shift+F3 is sent as F15 when inside tmux
+if vim.env.ALACRITTY_SOCKET then
+  map("", "<F15>", "<S-F3>", {})
+end
+
 -- Lsp binds
 local opts = { noremap = true, silent = true }
 opts.desc = "Show LSP references"

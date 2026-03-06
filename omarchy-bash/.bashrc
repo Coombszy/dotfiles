@@ -84,17 +84,6 @@ then
     complete -F _repos_completion repos # And change me if you change the method signature
 fi
 
-# tmux
-################################################################################
-# Start/Attach to tmux
-alias tmux-join='tmux attach -t primary || tmux new -s primary'
-
-# Tmux start/reconnect by default (skip if SSH session)
-if [ -z "$TMUX" ] && [ -z "$SSH_TTY" ]
-then
-    tmux-join
-fi
-
 # Terraform
 ################################################################################
 tfinit() {
@@ -129,6 +118,17 @@ tflock() {
         -platform=darwin_arm64 \
         -platform=linux_arm64
 }
+
+# tmux
+################################################################################
+# Start/Attach to tmux
+alias tmux-join='tmux attach -t primary || tmux new -s primary'
+
+# Tmux start/reconnect by default (skip if SSH session)
+if [ -z "$TMUX" ] && [ -z "$SSH_TTY" ]
+then
+    tmux-join
+fi
 
 ################################################################################
 # End of Obsidian Default Profile - But then warped for Arch/Omarchy

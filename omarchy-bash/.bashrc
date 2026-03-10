@@ -30,7 +30,7 @@ MY_EDITOR=nvim
 ################################################################################
 export PATH="$HOME/.local/bin:$PATH"
 
-if command -v kubectl --help &> /dev/null # kubectl
+if command -v kubectl --help &> /dev/null
 then
     source <(kubectl completion bash)
 fi
@@ -38,6 +38,11 @@ fi
 if command -v xclip --help &> /dev/null # Only setup "pbcopy" (xclip) if installed
 then
     alias pbcopy="xclip -sel clip"
+fi
+
+if command -v gvm version &> /dev/null
+then
+    source ~/.gvm/scripts/gvm
 fi
 
 # Repository and Git stuff

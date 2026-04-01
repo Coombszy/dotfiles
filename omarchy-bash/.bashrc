@@ -14,7 +14,7 @@ fi
 # (don't mess with these directly, just overwrite them here!)
 source ~/.local/share/omarchy/default/bash/rc
 
-alias full-update='sudo pacman -Syyu' # Update and upgrade, then clean
+alias full-update='read -p "You sure? (ctrl+c to cancel)" && sudo pacman -Syyu' # Update and upgrade, then clean
 
 ################################################################################
 # Origin of this was Obsidian Default Profile
@@ -47,6 +47,11 @@ fi
 
 # Repository and Git stuff
 ################################################################################
+# ssh-agent
+if [ "$SSH_AUTH_SOCK" = "" ] ; then
+    eval `(ssh-agent)`
+fi
+
 # Set NVIM as default editor
 VISUAL="$MY_EDITOR"
 EDITOR="$VISUAL"

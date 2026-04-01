@@ -5,11 +5,9 @@ return {
     build = ":TSUpdate",
     cmd = { "TSUpdate", "TSInstall" },
     config = function()
-        local configs = require("nvim-treesitter.configs")
-        configs.setup({
+        require("nvim-treesitter").setup({
             ensure_installed = { "lua", "vim", "vimdoc", "yaml" },
             auto_install = true,
-            highlight = { enable = true },
         })
         vim.opt.foldmethod = "expr"
         vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"

@@ -40,6 +40,17 @@ then
     alias pbcopy="xclip -sel clip"
 fi
 
+if command -v preload &> /dev/null
+then
+    function preload-usage() {
+        if ! pgrep -x preload &> /dev/null; then
+            echo "preload is not running"
+            return 1
+        fi
+        cat /proc/$(pgrep preload)/status | grep -i vm
+    }
+fi
+
 if command -v gvm version &> /dev/null
 then
     source ~/.gvm/scripts/gvm
